@@ -50,11 +50,12 @@ function showMenu($articulos) {
 }
 
 function showTopSold($articulos) {
-
+    // Ordenamos los más vendidos
     usort($articulos, function($a, $b) {
         return $b->contador - $a->contador;
     });
 
+    // Sacamos por pantalla los 3 más vendidos
     echo "<h1>Los más vendidos</h1>";
     $top3 = array_slice($articulos,0,3);
     foreach ($top3 as $articulo) {
@@ -82,4 +83,4 @@ function showTopProfitable($articulos) {
     }
 }
 
-require 'index.view.php';
+//require 'index.view.php';

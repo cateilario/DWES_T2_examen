@@ -19,7 +19,6 @@
     <ul>
         <?php foreach ($bebidas as $bebida) : ?>
             <li> <?= $bebida->nombre ?> </li> 
-            
         <?php endforeach ?>
     </ul>
 
@@ -29,8 +28,19 @@
             <li> <?= $otro->nombre ?> </li> 
         <?php endforeach ?>
     </ul>
+
     <h1>Los más vendidos</h1>
+    <ul>
+        <?php foreach ($top3 as $articulo) : ?>
+            <li> <?= $articulo->nombre ?>  - Vendidos: <?= $articulo->contador ?> </li> 
+        <?php endforeach ?>
+    </ul>
 
     <h1>¡Los más lucrativos!</h1>
+    <ul>
+        <?php foreach ($articulos as $articulo) : ?>
+            <li> <?= $articulo->nombre ?>  - Beneficio total: <?= $articulo->beneficio ?> €</li> 
+        <?php endforeach ?>
+    </ul>
 </body>
 </html>
