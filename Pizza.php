@@ -1,5 +1,5 @@
 <?php
-
+// CLASE DERIVADA PIZZA
 class Pizza extends Articulo {
     private $ingredientes;
 

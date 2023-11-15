@@ -1,5 +1,5 @@
 <?php
-
+// CLASE DERIVADA BEBIDA
 class Bebida extends Articulo {
     private $alcoholica;
 

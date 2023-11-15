@@ -19,9 +19,6 @@ $articulos = [
     new Bebida("Cerveza", 1.50, 3.00, 40, true)
 ];
 
-// Ejemplo de uso
-
-
 showMenu($articulos);
 showTopSold($articulos);
 showTopProfitable($articulos);
@@ -34,6 +31,7 @@ function showMenu($articulos) {
     $otros = array_filter($articulos, fn($articulo) => !($articulo instanceof Pizza) && !($articulo instanceof Bebida));
 
     echo "<h1>Nuestro menú</h1>";
+    echo "<hr>";
     echo "<h2>Pizzas</h2>";
     foreach ($pizzas as $pizza) {
         echo $pizza->nombre . "<br>";
@@ -79,10 +77,9 @@ function showTopProfitable($articulos) {
     });
 
     echo "<h1>Los más lucrativos</h1>";
-    $topLucrativos = array_slice($articulos, 0, 3); // Select the top 3 most profitable items
     foreach ($articulos as $articulo) {
         echo $articulo->nombre . " - Beneficio total: " . $articulo->beneficio . "€" . "<br>";
     }
 }
 
-//include 'index.view.php';
+require 'index.view.php';
