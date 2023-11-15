@@ -3,6 +3,7 @@
  * GitHub: https://github.com/cateilario/DWES_T2_examen.git
  */
 
+// Incluimos las clases:
 include('Articulo.php');
 include('Pizza.php');
 include('Bebida.php');
@@ -19,6 +20,7 @@ $articulos = [
     new Bebida("Cerveza", 1.50, 3.00, 40, true)
 ];
 
+// Llamada a las funciones
 showMenu($articulos);
 showTopSold($articulos);
 showTopProfitable($articulos);
