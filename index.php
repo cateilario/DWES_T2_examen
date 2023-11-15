@@ -24,13 +24,62 @@ mostrarMasVendidos($articulos);
 mostrarMasLucrativos($articulos);
 
 function mostrarMenu($articulos) {
+    $pizzas = array_filter($articulos, fn($articulo) => $articulo instanceof Pizza);
 
+    $bebidas = array_filter($articulos, fn($articulo) => $articulo instanceof Bebida);
+
+    $otros = array_filter($articulos, fn($articulo) => !($articulo instanceof Pizza) && !($articulo instanceof Bebida));
+
+    echo "<h1>Nuestro menú</h1>";
+    echo "<h2>Pizzas</h2>";
+    foreach ($pizzas as $pizza) {
+        echo $pizza->nombre . "<br>";
+    }
+
+    echo "<h2>Bebidas</h2>";
+    foreach ($bebidas as $bebida) {
+        echo $bebida->nombre . "<br>";
+    }
+
+    echo "<h2>Otros</h2>";
+    foreach ($otros as $otro) {
+        echo $otro->nombre . "<br>";
+    }
+    echo "<hr>";
 }
 
 function mostrarMasVendidos($articulos) {
 
+    usort($articulos, function($a, $b) {
+        return $b->contador - $a->contador;
+    });
+
+    echo "<h1>Los más vendidos</h1>";
+    $top3 = array_slice($articulos,0,3);
+    foreach ($top3 as $articulo) {
+        echo $articulo->nombre . " - Vendidos: " . $articulo->contador . "<br>";
+    }
+
+    echo "<hr>";
 }
 
 function mostrarMasLucrativos($articulos) {
+    
+    // Obtener el beneficio de cada artículo
+    foreach ($articulos as $articulo) {
+        $articulo->beneficio = ($articulo->precio - $articulo->coste) * $articulo->contador;
+    }
 
+    // Ordenarlos según el beneficio
+    usort($articulos, function($a, $b) {
+        return $b->beneficio - $a->beneficio;
+    });
+
+    echo "<h1>Los más lucrativos</h1>";
+    $topLucrativos = array_slice($articulos, 0, 3); // Select the top 3 most profitable items
+    foreach ($articulos as $articulo) {
+        echo $articulo->nombre . " - Beneficio total: " . $articulo->beneficio . "€" . "<br>";
+    }
 }
+
+//include 'index.view.php';
