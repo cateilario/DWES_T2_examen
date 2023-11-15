@@ -21,7 +21,7 @@ $articulos = [
 
 showMenu($articulos);
 showTopSold($articulos);
-mostrarMasLucrativos($articulos);
+showTopProfitable($articulos);
 
 function showMenu($articulos) {
     $pizzas = array_filter($articulos, fn($articulo) => $articulo instanceof Pizza);
@@ -63,7 +63,7 @@ function showTopSold($articulos) {
     echo "<hr>";
 }
 
-function mostrarMasLucrativos($articulos) {
+function showTopProfitable($articulos) {
     
     // Obtener el beneficio de cada artículo
     foreach ($articulos as $articulo) {
