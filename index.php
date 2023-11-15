@@ -8,7 +8,7 @@ include('Articulo.php');
 include('Pizza.php');
 include('Bebida.php');
 
-// Inicialización de los artículos
+// Inicialización de los artículos.
 $articulos = [
     new Articulo("Lasagna", 3.50, 7.00, 20),
     new Articulo("Pan de ajo y mozzarella", 2.00, 4.50, 15),
