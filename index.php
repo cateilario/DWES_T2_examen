@@ -19,11 +19,11 @@ $articulos = [
 // Ejemplo de uso
 
 
-mostrarMenu($articulos);
-mostrarMasVendidos($articulos);
+showMenu($articulos);
+showTopSold($articulos);
 mostrarMasLucrativos($articulos);
 
-function mostrarMenu($articulos) {
+function showMenu($articulos) {
     $pizzas = array_filter($articulos, fn($articulo) => $articulo instanceof Pizza);
 
     $bebidas = array_filter($articulos, fn($articulo) => $articulo instanceof Bebida);
@@ -48,7 +48,7 @@ function mostrarMenu($articulos) {
     echo "<hr>";
 }
 
-function mostrarMasVendidos($articulos) {
+function showTopSold($articulos) {
 
     usort($articulos, function($a, $b) {
         return $b->contador - $a->contador;
